@@ -1,0 +1,43 @@
+{
+    "type": "object",
+    "properties": {
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceName": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Work item configuration creation payload",
+            "properties": {
+                "ConnectorDataConfiguration": {
+                    "description": "Serialized JSON object for detailed properties",
+                    "type": "string"
+                },
+                "ConnectorId": {
+                    "description": "Unique connector id",
+                    "type": "string"
+                },
+                "ValidateOnly": {
+                    "description": "Boolean indicating validate only",
+                    "type": "boolean"
+                },
+                "WorkItemProperties": {
+                    "description": "Custom work item properties",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

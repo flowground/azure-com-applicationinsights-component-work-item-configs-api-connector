@@ -1,0 +1,118 @@
+{
+    "title": "ApplicationInsightsManagementClient",
+    "description": "Azure Application Insights client for work item configurations for a component.",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/azure.com/applicationinsights-componentWorkItemConfigs_API/2015-05-01/swagger.json",
+    "envVars": {
+        "OAUTH_CLIENT_ID": {
+            "description": "OAuth Client ID"
+        },
+        "OAUTH_CLIENT_SECRET": {
+            "description": "OAuth Client Secret"
+        }
+    },
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://management.azure.com/",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "azure_auth": {
+                "label": "Azure Active Directory OAuth2 Flow.",
+                "viewClass": "OAuthFieldView"
+            }
+        },
+        "oauth2": {
+            "client_id": "{{OAUTH_CLIENT_ID}}",
+            "client_secret": "{{OAUTH_CLIENT_SECRET}}",
+            "auth_uri": "https://login.microsoftonline.com/common/oauth2/authorize"
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "WorkItemConfigurations_GetDefault": {
+            "main": "./lib/actions/WorkItemConfigurations_GetDefault.js",
+            "title": "Gets default work item configurations that exist for the application",
+            "description": "Gets default work item configurations that exist for the application",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/WorkItemConfigurations_GetDefault.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "WorkItemConfigurations_List": {
+            "main": "./lib/actions/WorkItemConfigurations_List.js",
+            "title": "Gets the list work item configurations that exist for the application",
+            "description": "Gets the list work item configurations that exist for the application",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/WorkItemConfigurations_List.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "WorkItemConfigurations_Create": {
+            "main": "./lib/actions/WorkItemConfigurations_Create.js",
+            "title": "Create a work item configuration for an Application Insights component.",
+            "description": "Create a work item configuration for an Application Insights component.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/WorkItemConfigurations_Create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "WorkItemConfigurations_Delete": {
+            "main": "./lib/actions/WorkItemConfigurations_Delete.js",
+            "title": "Delete a work item configuration of an Application Insights component.",
+            "description": "Delete a work item configuration of an Application Insights component.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/WorkItemConfigurations_Delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}
